@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ItemComponent } from './item/item.component'; 
+import { formattedError } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -13,15 +13,23 @@ export class TodoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
   addItem(item: string) : void{ 
-    if(!item){
-      console.log('não');
-    } else {
-      this.itens.push({id:this.itens.length, name:item});
-      console.warn(this.itens);
-    }
-  }
+    
+    this.itens.push(item);
+    console.warn(this.itens);
+    localStorage.setItem(JSON.parse('item', this.itens));
+ } 
+
+  // view(){
+    
+    
+  //   // this.itens.push(JSON.stringify(`${this.itens}`));
+   
+   
+
+  //   return localStorage.getItem('item');
+
+  // }
 }
