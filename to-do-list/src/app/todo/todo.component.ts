@@ -1,4 +1,3 @@
-import { formattedError } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -13,23 +12,22 @@ export class TodoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.exists();
   }
 
   addItem(item: string) : void{ 
-    
     this.itens.push(item);
-    console.warn(this.itens);
-    localStorage.setItem(JSON.parse('item', this.itens));
+    localStorage.setItem('item', JSON.stringify(this.itens));
  } 
+ 
+  exists(){
+    if(localStorage.getItem('item')){
+      const ls = localStorage.getItem('item') || '[]';
+      const list = JSON.parse(ls);
 
-  // view(){
-    
-    
-  //   // this.itens.push(JSON.stringify(`${this.itens}`));
-   
-   
-
-  //   return localStorage.getItem('item');
-
-  // }
+      list.forEach((el: string) => {
+        this.addItem(el);
+      });
+    }
+  }
 }
