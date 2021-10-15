@@ -16,8 +16,12 @@ export class TodoComponent implements OnInit {
   }
 
   addItem(item: string) : void{ 
-    this.itens.push(item);
-    localStorage.setItem('item', JSON.stringify(this.itens));
+    if(!item){
+      console.log('Não pode inserir');
+    }else {
+      this.itens.push(item);
+      localStorage.setItem('item', JSON.stringify(this.itens));
+    }
  } 
  
   exists(){
