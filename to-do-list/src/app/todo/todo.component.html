@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let item of itens"><input type="checkbox"> {{item}}</li>
+    <li *ngFor="let item of itens"><input (click) ="checkedItem()" type="checkbox"> {{item.name}}</li>
 </ul>
 
 <input type="text" #item>

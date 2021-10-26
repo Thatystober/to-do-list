@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
+  // item_obj = {nome: String, check: Boolean};
   itens: any[]= [];
 
   constructor() { }
@@ -19,7 +19,8 @@ export class TodoComponent implements OnInit {
     if(!item){
       console.log('Não pode inserir');
     }else {
-      this.itens.push(item);
+      const item_obj = {name: item, check: false};
+      this.itens.push(item_obj);
       localStorage.setItem('item', JSON.stringify(this.itens));
     }
  } 
@@ -29,9 +30,13 @@ export class TodoComponent implements OnInit {
       const ls = localStorage.getItem('item') || '[]';
       const list = JSON.parse(ls);
 
-      list.forEach((el: string) => {
-        this.addItem(el);
+      list.forEach((el: any) => {
+        this.addItem(el.name);
       });
     }
+  }
+
+  checkedItem(){
+    
   }
 }
