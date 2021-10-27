@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { templateJitUrl } from '@angular/compiler';
+import { Component, OnInit, Output } from '@angular/core';
+import { ItemComponent } from './item/item.component';
 
 @Component({
   selector: 'app-todo',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  // item_obj = {nome: String, check: Boolean};
   itens: any[]= [];
-
+  // public isChecked = false;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -36,7 +38,13 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  checkedItem(){
-    
+  // @Output()
+  checkedItem(e: any){
+    console.log(e.target.checked); // true/false
+
+    if('.check'){
+      console.log(this.itens);
+
+    }
   }
 }

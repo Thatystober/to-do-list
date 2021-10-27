@@ -1,5 +1,8 @@
-<ul>
-    <li *ngFor="let item of itens"><input (click) ="checkedItem()" type="checkbox"> {{item.name}}</li>
+<ul class="listTodoList">
+    <li *ngFor="let item of itens">
+        <input type="checkbox" class="check" name="check" (change) ="checkedItem($event)"> 
+        <span>{{item.name}}</span>
+    </li>
 </ul>
 
 <input type="text" #item>

@@ -13,4 +13,8 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  checkedItem(){
+    
+  }
 } 
