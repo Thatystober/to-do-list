@@ -1,5 +1,4 @@
-import { templateJitUrl } from '@angular/compiler';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ItemComponent } from './item/item.component';
 
 @Component({
@@ -9,8 +8,8 @@ import { ItemComponent } from './item/item.component';
 })
 export class TodoComponent implements OnInit {
   itens: any[]= [];
-  // public isChecked = false;
-  
+  item_obj: any = {name: String, check: Boolean};
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,8 +20,8 @@ export class TodoComponent implements OnInit {
     if(!item){
       console.log('Não pode inserir');
     }else {
-      const item_obj = {name: item, check: false};
-      this.itens.push(item_obj);
+      this.item_obj = {name: item, check: Boolean};
+      this.itens.push(this.item_obj);
       localStorage.setItem('item', JSON.stringify(this.itens));
     }
  } 
@@ -38,13 +37,4 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  // @Output()
-  checkedItem(e: any){
-    console.log(e.target.checked); // true/false
-
-    if('.check'){
-      console.log(this.itens);
-
-    }
-  }
 }
