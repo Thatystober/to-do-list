@@ -1,7 +1,6 @@
 <ul class="listTodoList">
     <li *ngFor="let item of itens">
-        <app-item></app-item>
-        <label>{{item.name}}</label>
+        <app-item [itemObj] = 'item'></app-item>
     </li>
 </ul>
 
