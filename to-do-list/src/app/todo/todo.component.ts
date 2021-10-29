@@ -6,6 +6,7 @@ import { ItemComponent } from './item/item.component';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
+
 export class TodoComponent implements OnInit {
   itens: any[]= [];
   itemObjs: any = {name: String, check: Boolean};
@@ -20,7 +21,7 @@ export class TodoComponent implements OnInit {
     if(!item){
       console.log('Não pode inserir');
     }else {
-      this.itemObjs = {name: item, check: Boolean};
+      this.itemObjs = {name: item, check: false};
       this.itens.push(this.itemObjs);
       localStorage.setItem('item', JSON.stringify(this.itens));
     }

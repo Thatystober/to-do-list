@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+* {
+  background-color: #f0dfcd;
+}
+
+app-root {
+  display: flex;
+  justify-content: center;
+}

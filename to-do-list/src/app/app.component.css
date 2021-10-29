@@ -1,0 +1,10 @@
+.title {
+    font-family: "Satisfy", sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-weight: 600;
+    font-size: 3.5em;
+    text-align: center;
+}
+

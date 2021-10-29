@@ -1,0 +1,16 @@
+input.check {
+    appearance: none;
+    background: #f0dfcd;
+    border: 1px solid #473728;
+    width: 35px;
+    height: 35px;
+    border-radius: 7px;
+}
+
+input.check:checked{
+    background-color: #fcfbf9;
+}
+
+label {
+    padding-left: 14px;
+}
