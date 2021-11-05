@@ -29,6 +29,8 @@ export class ItemComponent implements OnInit {
         list.splice(index, 1, {name: itemCheck.name, check: checked});
         console.log(list);
 
+        localStorage.setItem('item', JSON.stringify(list));
+
       }
     });
   }
