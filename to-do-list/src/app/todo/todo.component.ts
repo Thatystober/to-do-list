@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemComponent } from './item/item.component';
 
 @Component({
@@ -17,11 +17,11 @@ export class TodoComponent implements OnInit {
     this.exists();
   }
 
-  addItem(item: string) : void{ 
-    if(!item){
+  addItem(name: string, checked: boolean) : void{ 
+    if(!name){
       console.log('Não pode inserir');
     }else {
-      this.itemObjs = {name: item, check: false};
+      this.itemObjs = {name: name, check: checked};
       this.itens.push(this.itemObjs);
       localStorage.setItem('item', JSON.stringify(this.itens));
     }
@@ -31,11 +31,16 @@ export class TodoComponent implements OnInit {
     if(localStorage.getItem('item')){
       const ls = localStorage.getItem('item') || '[]';
       const list = JSON.parse(ls);
-
+      
       list.forEach((el: any) => {
-        this.addItem(el.name);
+        this.addItem(el.name, el.check);
       });
     }
   }
+
+  // reciver(teste: any){
+  //   console.log(teste);
+  // }
+
 
 }

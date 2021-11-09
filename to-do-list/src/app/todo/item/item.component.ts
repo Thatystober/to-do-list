@@ -11,7 +11,10 @@ export class ItemComponent implements OnInit {
   @Input() itemObj: any;
 
   ngOnInit(): void {
+    if(this.itemObj.check == true){
+      const check = window.document.querySelector(".check");
     
+    }
   }
 
   checkedItem(e: any){
@@ -23,15 +26,13 @@ export class ItemComponent implements OnInit {
 
     list.forEach((e: any, index: any) => {
       if(e.name == itemCheck.name){
-        // console.log(itemCheck);
-        // console.log(index);
-
         list.splice(index, 1, {name: itemCheck.name, check: checked});
         console.log(list);
 
         localStorage.setItem('item', JSON.stringify(list));
-
       }
     });
+    
+
   }
 } 
